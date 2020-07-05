@@ -1,0 +1,51 @@
+﻿using Terraria.ID;
+using Terraria.ModLoader;
+using Terraria;
+using Microsoft.Xna.Framework;
+
+namespace Origin.Items.Weapons
+{
+    public class MAT49 : ModItem
+    {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("MAT-49");
+            Tooltip.SetDefault("SMG Secondary");
+        }
+
+        public override void SetDefaults()
+        {
+            item.damage = 15;
+            item.knockBack = 2;
+            item.shoot = ProjectileID.Bullet;
+            item.shootSpeed = 16;
+
+            item.ranged = true;
+            item.noMelee = true;
+
+            item.height = 24;
+            item.width = 24;
+            
+            item.useTime = 4;
+            item.useAnimation = 10;
+            item.autoReuse = true;
+
+            item.value = 1000;
+            item.rare = ItemRarityID.Green;
+
+            item.useStyle = ItemUseStyleID.HoldingOut;
+            item.UseSound = SoundID.Item11;
+            item.useAmmo = AmmoID.Bullet;
+        }
+
+        public override void AddRecipes()
+        {
+            ModRecipe modRecipe = new ModRecipe(mod);
+            modRecipe.AddIngredient(ItemID.IllegalGunParts, 2);
+            modRecipe.AddIngredient(ItemID.IronBar, 2);
+            modRecipe.AddTile(TileID.Anvils);
+            modRecipe.SetResult(this);
+            modRecipe.AddRecipe();
+        }
+    }
+}
